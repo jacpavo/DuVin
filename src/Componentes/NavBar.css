@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: 9;
+}
+
+.nav{
+    padding: 10px 10vw;
+    display: flex;
+}
+
+.navlogo{
+    object-fit: contain;
+    width: 30%;
+}
+
+.navitems{
+    display: flex;
+}
+
+ul,li,a{
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.searchbox{
+    width: 50%;
+    height: 30px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border: 1px solid #d1d1d1;
+}
