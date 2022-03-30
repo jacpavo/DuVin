@@ -1,11 +1,11 @@
 import './NavBar.css'
-
+import CartIcon from './CartWidget'
 
 
 const NavBar = () => {
     return <nav className= "navbar">
         <div className="nav">
-        <img src="https://www.canva.com/design/DAE1jLdqSkw/view" className="navlogo" alt="DuVin" />
+        <img src="./img/logo.jpeg" className="navlogo" alt="DuVin" />
             <div className="navitems"> 
                 <ul>
                     <li>
@@ -22,6 +22,12 @@ const NavBar = () => {
                     </li>
                     <li>
                         <a href="">Contacto</a>
+                    </li>
+                    <li>
+                    <a> <CartIcon className='carticon'/> 0 </a>
+                    </li>
+                    <li>
+                    <a> <input type="text" className="searchbox" placeholder="marca, producto" /> </a>
                     </li>
                 </ul> 
             </div>
