@@ -4,6 +4,8 @@ import './ItemCounter.css'
 
 const ContadorDos = ({onAdd, stock, initial, count}) => { 
     
+   
+
     return <div className = 'contador'>
         <button onClick={() => {if(count > initial) {onAdd('-')}}}>-</button>
         <span>{count}</span>

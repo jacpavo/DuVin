@@ -36,6 +36,4 @@ const NavBar = () => {
     </nav>
 };
 
-//<input type="text" className="searchbox" placeholder="marca, producto" />
-
 export default NavBar;

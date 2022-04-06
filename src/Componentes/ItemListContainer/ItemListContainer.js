@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import ItemCounter from '../ItemCounter/ItemCounter.js'
 import ContadorDos from '../ItemCounter/Contador.js'
+import ItemList from '../ItemList/ItemList.js'
 
 const ItemListContainer = (props) => {
+   
     const [count, setCount] = useState(1);
     const onAdd = (condition) => {
         if(condition === '-'){
@@ -14,11 +15,11 @@ const ItemListContainer = (props) => {
     }
     const stock = 5;
     const initial = 1;
-    
+
     return(
         <> 
         <h1>{props.greeting}</h1>
-        <ItemCounter/>
+        <ItemList/>
         <ContadorDos onAdd={onAdd} stock={stock} initial={initial} count={count}/>
         </>
         )
