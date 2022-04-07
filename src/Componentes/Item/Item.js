@@ -1,19 +1,14 @@
-import beverage from '../mock/beverage.js'
+import '../Item/Item.css'
 
-const getBev = () => {
-
-    return new Promise ((resolve, reject) => {
-        const ok = true;
-        setTimeout(() =>{
-            if (ok) {
-                resolve(beverage);
-            } else {
-                reject('error');
-            }
-        }, 4000);
-
-    })
+const Item = ({marca, precio, img, origen}) => {
+    return(
+        <div className="itemCard">
+            <img scr= {img} alt={marca}/>
+                <p>{marca}</p>
+                <p>{precio}</p>
+                <p>{origen}</p>
+        </div>
+    )
 }
 
-
-export default getBev
+export default Item

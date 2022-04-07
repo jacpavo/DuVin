@@ -1,18 +1,12 @@
-import './ItemCounter.css'
+import {useState} from 'react'
 
+const Contador = () => {
+const[show, setShow] = useState(true)
 
-
-const ContadorDos = ({onAdd, stock, initial, count}) => { 
-    
-   
-
-    return <div className = 'contador'>
-        <button onClick={() => {if(count > initial) {onAdd('-')}}}>-</button>
-        <span>{count}</span>
-        <button onClick={() => {if(count < stock) {onAdd('+')}}}>+</button>
-        <button className = "pluscarrito">Agregar Carrito</button>
-    </div>
-
+    return(
+        <div>
+            <button onClick={() => setShow(!show)}>{show ? 'Ocultar' : 'Mostrar'}</button>
+        </div>
+    )
 }
-
-export default ContadorDos
+export default Contador

@@ -1,28 +1,39 @@
-import React, {useState} from 'react'
-import ContadorDos from '../ItemCounter/Contador.js'
-import ItemList from '../ItemList/ItemList.js'
+import {useState, useEffect} from 'react'
+import ItemList from '../ItemList/ItemList'
+import {getProducts} from '../mock/products'
+import ItemCounter from '../ItemCounter/ItemCounter'
+
+
 
 const ItemListContainer = (props) => {
+   const [products, setProducts] = useState([])
    
-    const [count, setCount] = useState(1);
-    const onAdd = (condition) => {
-        if(condition === '-'){
-            setCount(count - 1);
-        }
-        if(condition === '+'){
-            setCount(count + 1);
-        }
+   const [show, setShow] = useState(true)
+
+    const manejoOnAdd = (cantidad) => {
+        console.log(`Se agrego ${cantidad} al carrito`)
     }
-    const stock = 5;
-    const initial = 1;
+   
+
+    useEffect (()=>{
+        getProducts().then(prods => {
+            setProducts(prods)
+        }).catch(error=> {
+            console.log(error)
+        });
+    }, [])
+
 
     return(
         <> 
         <h1>{props.greeting}</h1>
-        <ItemList/>
-        <ContadorDos onAdd={onAdd} stock={stock} initial={initial} count={count}/>
+        <ItemList products={products} />
+        <button onClick={()=> setShow=(false)}>{show ? 'Ocultar' : 'Mostrar'}</button>
+        {show ? <ItemCounter onAdd={manejoOnAdd} /> : null}
         </>
         )
-}
-
-export default ItemListContainer
+    }
+    
+    export default ItemListContainer
+    
+    

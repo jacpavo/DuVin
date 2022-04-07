@@ -1,28 +1,16 @@
-import {useState, useEffect} from 'react'
-import getBev from '../Item/Item.js'
 
-const ItemList = () => {
-    const [products, setProducts] = useState([])
+import Item from '../Item/Item'
 
-    useEffect (()=>{
-        getBev().then(bevs => setProducts(bevs)).catch(error=>console.log(error));
-    }, [])
 
-    useEffect (()=>{
-        console.log(products);
-    },[products])
+const ItemList = ({products}) => {
+    
     return(
         <div>
-            {products.map((products)=><div>
-                <p>{products.Bodega}</p>
-                <p>{products.Variedad}</p>
-                <p>{products.Precio}</p>
-                <p>{products.País}</p>
-                <p>{products.img}</p>
-            </div>)}
+            {products.map(prod => <Item key={prod.id} {...prod}/> )}
         </div>
-    )
-}
+        )    
+
+    }
 
 
 export default ItemList
