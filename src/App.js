@@ -6,6 +6,11 @@ import ItemCounter from './Componentes/ItemCounter/ItemCounter'
 import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailContainer'
 
 function App() {
+  const [show, setShow] = useState(true)
+
+  const handleOnAdd = (cantidad) =>{
+    console.log(`se agregaron ${cantidad} productos`)
+  }
   
 
   return (
