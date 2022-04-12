@@ -1,17 +1,19 @@
-import {useState, } from 'react'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
-import ItemCounter from '../ItemCounter/ItemCounter'
+import {useState, useEffect } from 'react'
+import {getProducts, getProdutcs} from '../mock/products'
+import ItemList from '../ItemList/ItemList'
 
 
 
 const ItemListContainer = (props) => {
-    const [products, setPtoducts] = useState([])
+    const [products, setProducts] = useState([])
 
-    const [show, setShow] = useState(true)
-
-    const manejoOnAdd = (cantidad) => {
-        console.log(`Se agrego ${cantidad} al carrito`)
-    }
+    useEffect(() => {
+        getProducts().then(prods => {
+            setProducts(prods)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, []) 
 
     
 
@@ -19,7 +21,6 @@ const ItemListContainer = (props) => {
         <> 
         <h1>{props.greeting}</h1>
         <ItemList products={products} />
-        {show ? <ItemCounter onAdd={manejoOnAdd} /> : null}
         </>
         )
     }

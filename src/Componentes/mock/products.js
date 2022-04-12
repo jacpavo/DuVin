@@ -122,16 +122,17 @@ const products = [
 
 
 export const getProducts = () => {
-    return new Promise ((resolve, reject) => {
-        const ok = true;
-        setTimeout(() =>{
-            if (ok) {
-                resolve(products);
-            } else {
-                reject('error');
-            }
-        }, 4000);
-
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(products)
+        }, 2000)
     })
 }
 
+export const getProductsById = (id) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === id))
+        }, 2000)
+    })
+}
