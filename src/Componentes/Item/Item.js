@@ -1,12 +1,11 @@
 import '../Item/Item.css'
 
-const Item = ({marca, precio, img, origen}) => {
+const Item = ({marca, precio, img, categoria}) => {
     return(
         <div className="itemCard">
-            <img scr= {img} alt={marca}/>
+                <img scr= {img} alt={categoria}/>
                 <p>{marca}</p>
                 <p>{precio}</p>
-                <p>{origen}</p>
         </div>
     )
 }
