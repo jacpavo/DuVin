@@ -9,6 +9,7 @@ const ItemDetail = ({id, marca, variedad, precio, origen, img, categoria }) => {
                 {marca}
             </h2>
             <div>
+                <p key= {id}></p>
                 <img src={img} alt={marca}/>
                 <p>Variedad: {variedad}</p>
                 <p>Precio: {precio}</p>
