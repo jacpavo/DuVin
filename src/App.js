@@ -1,12 +1,10 @@
 import './App.css';
 import NavBar from '../src/Componentes/NavBar/NavBar';
 import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer'
-import {useState} from 'react'
-import ItemCounter from './Componentes/ItemCounter/ItemCounter'
+import {BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailContainer'
 
 function App() {
-  const [show, setShow] = useState(true)
 
   const handleOnAdd = (cantidad) =>{
     console.log(`se agregaron ${cantidad} productos`)
@@ -15,9 +13,16 @@ function App() {
 
   return (
     <div className="App">
+    <BrowserRouter>
      <NavBar />
-     <ItemListContainer greeting='Un vinito a tu salud!!'/>
-     <ItemDetailContainer/>
+     <Routes>
+
+     <Route path='/Vinos' element={<ItemListContainer />} />
+     <Route path='/Cervezas' element={<ItemListContainer />} />
+     <Route path='/Espirituosas' element={<ItemDetailContainer />} />
+
+     </Routes>
+    </BrowserRouter>
     </div>
   );
 }

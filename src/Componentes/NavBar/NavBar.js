@@ -1,39 +1,54 @@
 import './NavBar.css'
 import CartIcon from './CartWidget'
+import { Link, NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { getCategorias } from '../mock/products'
 
 
 const NavBar = () => {
-    return <nav className= "navbar">
+    const [categorias, setCategorias] = useState([])
+    
+    useEffect(() => {
+        getCategorias().then(categorias => {
+            setCategorias(categorias)
+        })
+    }, [])
+
+return ( 
+    <nav className= "navbar">
+        <Link to='/'>
+            <img src="./img/logo.jpeg" className="navlogo" alt="DuVin" />
         <div className="nav">
-        <img src="./img/logo.jpeg" className="navlogo" alt="DuVin" />
+
             <div className="navitems"> 
-                <ul>
+                 <ul>
                     <li>
-                        <a href="">Home</a>
+                        <Link to="/home">Home</Link>
                     </li>
                     <li>
-                        <a href="">Vinos</a>
+                        <Link to= "Vinos">Vinos</Link>
                     </li>
                     <li>
-                        <a href="">Cervezas</a>
+                        <Link to="/cervezas">Cervezas</Link>
                     </li>
                     <li>
-                        <a href="">Espirituosas</a>
+                        <Link to="/espirituosas">Espirituosas</Link>
                     </li>
                     <li>
-                        <a href="">Contacto</a>
+                        <Link to="/contacto">Contacto</Link>
                     </li>
                     <li>
-                    <a> <CartIcon className='carticon'/> 0 </a>
+                        <CartIcon className='carticon' /> 
                     </li>
                     <li>
                     <a> <input type="text" className="searchbox" placeholder="marca, producto" /> </a>
                     </li>
-                </ul> 
-            </div>
+                </ul>
+            </div>    
         </div>
-
+        </Link>
     </nav>
+    )
 };
 
 export default NavBar;

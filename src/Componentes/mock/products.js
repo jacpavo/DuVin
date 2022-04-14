@@ -120,12 +120,24 @@ const products = [
     },
 ];
 
+const categorias = [
+    {id: 'vino', descripcion: 'Vino'},
+    {id: 'cerveza', descripcion: 'Cerveza'},
+    {id: 'destilado', descripcion: 'Destilado'},
+]
 
-export const getProducts = () => {
+export const getCategorias = () => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(categorias)
+        }, 2000)
+    })
+}
+export const getProducts = (categoriaId) => {
     return new Promise (resolve => {
         setTimeout(() => {
-            resolve(products)
-        }, 1000)
+            resolve(categoriaId ? products.filter(prod => prod.categoria === categoriaId) : products)
+        }, 2000)
     })
 }
 
@@ -133,6 +145,6 @@ export const getProductsById = (id) => {
     return new Promise (resolve => {
         setTimeout(() => {
             resolve(products.find(prod => prod.id === id))
-        }, 5000)
+        }, 2000)
     })
 }
