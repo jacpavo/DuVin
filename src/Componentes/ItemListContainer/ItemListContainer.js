@@ -1,5 +1,5 @@
 import {useState, useEffect } from 'react'
-import {getProducts, getProdutcs} from '../mock/products'
+import {getProducts} from '../mock/products'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 
@@ -18,13 +18,16 @@ const ItemListContainer = (props) => {
         })
     }, [categoriaId]) 
 
+    const handleClick = () => {
+        console.log('click itemlistcontainer')
+    }
     
 
     return(
-        <> 
+        <div onClick={handleClick}> 
         <h1>{props.greeting}</h1>
         <ItemList products={products} />
-        </>
+        </div>
         )
     }
     
