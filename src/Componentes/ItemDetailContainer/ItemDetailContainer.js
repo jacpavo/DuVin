@@ -1,28 +1,30 @@
 import { useState, useEffect } from 'react'
-import { getProductsById} from '../mock/products'
+import { getProducts } from '../mock/products'
+import { getProductsById } from '../mock/products'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ setCart, cart }) => {
     const [products, setProducts] = useState ()
-    const [cargando, setCargando] = useState (true)
-
-    const { productsId } = useParams()
+    const [cargando, setcargando] = useState (true)
+    
+    const { categoriasId } = useParams()
 
     useEffect(() => {
-      getProductsById(2).then(item => {
-          setProducts(item)
+      getProducts(categoriasId).then(prods => {
+          setProducts(prods)
       }).catch(err => {
           console.log(err)
       }).finally(() => {
-          setCargando(false)
+          setcargando(false)
       })
+      
 
       return (() => {
           setProducts()
       })
 
-    }, [2])
+    }, [getProductsById])
 
     return(
         <div>

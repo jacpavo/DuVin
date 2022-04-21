@@ -3,16 +3,15 @@ import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailCon
 import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer'
 import NavBar from '../src/Componentes/NavBar/NavBar';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import { CartContextProvider } from './Context/CartContext'
 
-function App() {
+const App = () => {
 
-  const handleOnAdd = (cantidad) =>{
-    console.log(`se agregaron ${cantidad} productos`)
-  }
   
 
   return (
     <div className="App">
+  <CartContextProvider>
     <BrowserRouter>
      <NavBar />
      <Routes>
@@ -23,6 +22,7 @@ function App() {
 
      </Routes>
     </BrowserRouter>
+  </CartContextProvider>
     </div>
   );
 }

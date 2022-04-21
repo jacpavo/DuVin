@@ -18,35 +18,15 @@ return (
     <nav className= "navbar">
         <Link to='/'>
             <img src="./img/logo.jpeg" className="navlogo" alt="DuVin" />
+        </Link>
         <div className="nav">
-
             <div className="navitems"> 
-                 <ul>
-                    <li>
-                        <Link to="/home">Home</Link>
-                    </li>
-                    <li>
-                        <Link to= "Vinos">Vinos</Link>
-                    </li>
-                    <li>
-                        <Link to="/cervezas">Cervezas</Link>
-                    </li>
-                    <li>
-                        <Link to="/espirituosas">Espirituosas</Link>
-                    </li>
-                    <li>
-                        <Link to="/contacto">Contacto</Link>
-                    </li>
-                    <li>
-                        <CartIcon className='carticon' /> 
-                    </li>
-                    <li>
-                    <a> <input type="text" className="searchbox" placeholder="marca, producto" /> </a>
-                    </li>
-                </ul>
+                { categorias.map(cat => <NavLink key={cat.id} to={`/categorias/${cat.id}`}
+                className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}
+                >{cat.description}</NavLink> )}
             </div>    
         </div>
-        </Link>
+        <CartIcon className='carticon' /> 
     </nav>
     )
 };
