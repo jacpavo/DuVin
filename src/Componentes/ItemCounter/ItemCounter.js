@@ -1,17 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './ItemCounter.css'
 
 
-const ItemCounter = ({initial, stock, onAdd}) => {
-    const [count, setCount] = useState(0)
+const ItemCounter = ({initial = 1, stock = 0, onAdd}) => {
+    const [cantidad, setCantidad] = useState(initial)
 
 
     const menos = () => {
-        setCount(count - 1)
+        if(cantidad > 0) {
+            setCantidad(cantidad - 1)
+        }
     }
 
     const mas = () => {
-        setCount(count + 1)
+        if(cantidad < stock) {
+            setCantidad(cantidad + 1)
+        }
     }
 
 
@@ -19,9 +23,9 @@ const ItemCounter = ({initial, stock, onAdd}) => {
     return(
         <div className = 'contador'>
             <button onClick={menos} >-</button>
-            <p>{count}</p>
+            <p>{cantidad}</p>
             <button onClick={mas} >+</button>
-            <button onClick={() => onAdd(count)} className= "pluscarrito">Agregar a Carrito</button>
+            <button onClick={() => onAdd(cantidad)} className= "pluscarrito">Agregar a Carrito</button>
         </div>
     )
 }

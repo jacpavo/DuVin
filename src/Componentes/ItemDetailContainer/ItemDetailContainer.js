@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { getProducts } from '../mock/products'
 import { getProductsById } from '../mock/products'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
@@ -11,7 +10,7 @@ const ItemDetailContainer = ({ setCart, cart }) => {
     const { categoriasId } = useParams()
 
     useEffect(() => {
-      getProducts(categoriasId).then(prods => {
+      getProductsById(categoriasId).then(prods => {
           setProducts(prods)
       }).catch(err => {
           console.log(err)
@@ -25,12 +24,15 @@ const ItemDetailContainer = ({ setCart, cart }) => {
       })
 
     }, [getProductsById])
+    if(cargando) {
+        return(
+            <h4>Cargando...</h4>
+        )
+    }
 
     return(
-        <div>
-            {
-                cargando ?
-                    <h4>Cargando...</h4> : 
+        <div className='ItemDetailContainer'>
+            { 
                     products ?
                         <ItemDetail {...products}/> :
                         <h5>Producto fuera de stock</h5>
@@ -40,22 +42,6 @@ const ItemDetailContainer = ({ setCart, cart }) => {
 }
 
 
-/*return(
-    <div>
-        <ul>
-            {products.map(products => {
-                return(
-                    <li key={products.id}>
-                        <img src={products.img} alt={products.marca}/>
-                        <p>{products.marca}</p>
-                        <p>${products.precio}</p>
-                    </li>
-                )
-            })}
-        </ul>
-    </div>
-    )
-}*/
 
 export default ItemDetailContainer
 
