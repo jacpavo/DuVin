@@ -1,7 +1,9 @@
 import {useState, useEffect } from 'react'
-import {getProducts} from '../mock/products'
+// import {getProducts} from '../mock/products'
+import { getDocs, collection, query, where, connectFirestoreEmulator } from 'firebase/firestore'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
+import { firestoreDb } from '../../services/firebase/index'
 
 
 
@@ -12,11 +14,25 @@ const ItemListContainer = (props) => {
     const { categoriaId } = useParams()
 
     useEffect(() => {
-        getProducts(categoriaId).then(prods => {
-            setProducts(prods)
-        }).catch(error => {
-            console.log(error)
+        //getProducts(categoriaId).then(prods => {
+        //    setProducts(prods)
+        //}).catch(error => {
+        //    console.log(error)
+        //})
+
+        const collectionRef = categoriaId
+            ? query(collection(firestoreDb, 'products'), where('categoria', '==', categoriaId))
+            : collection(firestoreDb, 'products')
+
+        getDocs(collectionRef).then(response => {
+            console.log(response)
+            const products = response.docs.map(doc => {
+                return{ id: doc.id, ...doc.data()}
+            })
+            setProducts(products)
+            console.log(products)
         })
+
     }, [categoriaId]) 
 
    useEffect(() => {

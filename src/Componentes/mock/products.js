@@ -5,8 +5,9 @@ const products = [
         variedad: "Malbec",
         precio: 2100,
         origen: "Mendoza, Argentina",
-        img:"./img/Card1.webp",
+        img:"https://cdn.shopify.com/s/files/1/0077/9639/2026/products/Algodon_p3_2.png?v=1588849477",
         categoria: "Vino",
+        stock: 15,
     },
 
     {
@@ -17,6 +18,7 @@ const products = [
         origen: "Mendoza, Argentina",
         img:"./img/Card2.jpeg",
         categoria: "Vino",
+        stock: 15,
     },
 
     {
@@ -27,6 +29,7 @@ const products = [
         origen: "Neuquen, Argentina",
         img:"./img/Card3.jpeg",
         categoria: "Vino",
+        stock: 15,
     },
 
     {
@@ -37,6 +40,7 @@ const products = [
         origen: "Neuquen, Argentina",
         img:"./img/Card4.webp",
         categoria: "Vino",
+        stock: 15,
     },
 
     {
@@ -45,8 +49,9 @@ const products = [
         variedad: "Amber Lager",
         precio: 260,
         origen: "Rio Negro, Argentina",
-        img:"./img/Card5.jpeg",
+        img:"https://i0.wp.com/lbdistribuidora.com/wp-content/uploads/2021/08/patagonia-355-amber-1-e1629475180846.png?fit=571%2C469&ssl=1",
         categoria: "Cerveza",
+        stock: 15,
     },
 
     {
@@ -57,6 +62,7 @@ const products = [
         origen: "Guayas, Ecuador",
         img:"./img/Card6.jpeg",
         categoria: "Cerveza",
+        stock: 15,
     },
 
     {
@@ -67,6 +73,7 @@ const products = [
         origen: "Zoeterwoude, Paises Bajos",
         img:"./img/Card7.jpeg",
         categoria: "Cerveza",
+        stock: 15,
     },
 
     {
@@ -77,6 +84,7 @@ const products = [
         origen: "Saint Louis, Estados Unidos",
         img:"./img/Card8.jpeg",
         categoria: "Cerveza",
+        stock: 15,
     },
 
     {
@@ -85,8 +93,9 @@ const products = [
         variedad: "Wisky",
         precio: 13000,
         origen: "Kilmarnock, Escocia",
-        img:"./img/Card9.jpeg",
+        img:"https://mfliquor.shop/wp-content/uploads/2020/10/johnnie-walker-green-label-750ml-thegem-blog-timeline-large.png",
         categoria: "Destilado",
+        stock: 15,
     },
 
     {
@@ -97,6 +106,7 @@ const products = [
         origen: "Managua, Nicaragua",
         img:"./img/Card10.png",
         categoria: "Destilado",
+        stock: 15,
     },
 
     {
@@ -107,6 +117,7 @@ const products = [
         origen: "Picardía, Francia",
         img:"./img/Card11.webp",
         categoria: "Destilado",
+        stock: 15,
     },
 
     {
@@ -117,6 +128,7 @@ const products = [
         origen: "Buenos Aires, Argentina",
         img:"./img/Card12.jpeg",
         categoria: "Destilado",
+        stock: 15,
     },
 ];
 
